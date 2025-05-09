@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::-webkit-file-upload-button {
+    border: none;
+}
+
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@keyframes modalIn {
+    0% {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+.animate-modal {
+    animation: modalIn 0.3s ease-out forwards !important;
+}
+
+body{background-color: #ebe9e9;}
+
+.LoginbgImg {
+    background-image: url(../public/img-3.jpg); 
+    background-repeat: no-repeat; background-size: cover;
+}
+
+.scrollbar-custom {
+    scrollbar-width: thin;
+}
+
+body.dark {
+    background: #0e1c36;
+}
+
+body.dark header, body.dark .Sidebar, body.dark .darkBody, body.dark .Breadcrumb, body.dark .layoutDark
+{background: #1a2b52; color: #e5e5e5 !important; }
+
+body.dark span {
+    color: #e5e5e5 !important; opacity: 0.90;}
+
+body.dark .LightMode {
+    background: #1d3162; color: rgba(0, 162, 255, 0.9) !important;}
+
+body.dark .Sidebar .button:hover {
+    background: rgba(255, 255, 255, 0.1); color: #e5e5e5 !important;}
+
+body.dark .Sidebar .Authentification {
+    background: #1a2b52; color: #e5e5e5 !important;}
+
+body.dark .CreateModal, body.dark .DeleteModal,
+body.dark .EditModal, body.dark .DetailsModal{background: #0e1c36; color: #e5e5e5 !important; z-index: 100;}
+
+body.dark label {
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+
+body.dark input, body.dark select, body.dark option, body.dark textarea, body.dark .Suggestions{
+    background: #1a2b52; color: #e5e5e5 !important; }
+    body.dark .Suggestions:hover{
+         background-color: #0e1c36;
+    }
+
+body.dark .SearchBox {background: #1a2b52; color: #e5e5e5; border: none; opacity: 0.85;}
+body.dark #outlined-search{background: #1a2b52; border: 1px solid rgba(255, 255, 255, 0.6);}
+
+body.dark table {border: none;}
+
+body.dark tr {border: none; z-index: 90;}
+
+body.dark tr:hover {
+    background: rgba(255, 255, 255, 0.1); color: #e5e5e5 !important; opacity: 0.85; z-index: 90;}
+
+body.dark th{background: #0e1c36; border: none; z-index: 90;}
+
+body.dark .detail{color: #0e1c36;}
+
+body.dark td, body.dark td button {color: #e5e5e5; opacity: 0.85; border: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 90;}
+
+body.dark .CalendarHead { background: #0e1c36;}
+
+body.dark .CalendarHead button {background: #1a2b52; color: #e5e5e5; opacity: 0.85;}
+
+body.dark .Calendar { opacity: 0.85; background: #1a2b52; border: 1px solid rgba(255, 255, 255, 0.1); color: #e5e5e5;}
+
+.custom-overflow {
+    background-color: rebeccapurple !important;
+}
