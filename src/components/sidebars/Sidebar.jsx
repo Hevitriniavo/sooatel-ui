@@ -41,7 +41,7 @@ const menuItems = [
   },
   
   {
-    title: "stocks",
+    title: "Stocks",
     icon: <AiOutlineStock />,
     path: "/stocks",
     subItems: [],
