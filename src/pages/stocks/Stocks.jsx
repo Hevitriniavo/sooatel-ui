@@ -55,7 +55,7 @@ function StockList() {
     } catch (error) {
       showError(
         "Une erreur s'est produite lors du chargement des stocks: " +
-          error.message
+        error.message
       );
     } finally {
       setIsLoading(false);
@@ -235,66 +235,81 @@ function StockList() {
             ) : filteredData.length > 0 ? (
               filteredData.map(({ name, ingredients, total }, i) => (
                 <React.Fragment key={i}>
-                  <tr className="font-bold bg-gray-100 text-center">
-                    <td colSpan="3">{name}</td>
-                    <td colSpan="3">Total prix: {total} Ar</td>
-                  </tr>
-                  {ingredients.map((ingredient) => (
-                    <tr key={ingredient.id} className="text-center">
-                      <td className="border-b p-2 text-sm sm:text-base">
-                        {ingredient?.stock?.createdAt
-                          ? dayjs(ingredient.stock.createdAt).format(
+                  {ingredients.length ? (
+                    <>
+                      <tr className="font-bold bg-gray-100 text-center">
+                        <td colSpan="3">{name}</td>
+                        <td colSpan="3">Total prix: {total} Ar</td>
+                      </tr>
+                      {ingredients.map((ingredient) => (
+                        <tr key={ingredient.id} className="text-center">
+                          <td className="border-b p-2 text-sm sm:text-base">
+                            {ingredient?.stock?.createdAt
+                              ? dayjs(ingredient.stock.createdAt).format(
+                                "YYYY-MM-DD HH:mm"
+                              )
+                              : "Non défini"}
+                          </td>
+                          <td className="border-b p-2 text-sm sm:text-base">
+                            {dayjs(ingredient?.stock?.updatedAt).format(
                               "YYYY-MM-DD HH:mm"
-                            )
-                          : "Non défini"}
-                      </td>
-                      <td className="border-b p-2 text-sm sm:text-base">
-                        {dayjs(ingredient?.stock?.updatedAt).format(
-                          "YYYY-MM-DD HH:mm"
-                        )}
-                      </td>
-                      <td className="border-b p-2 text-sm sm:text-base">
-                        {ingredient.name || "N/A"}
-                      </td>
-                      <td
-                        className={`border-b p-2 text-sm sm:text-base ${
-                          ingredient?.stock?.quantity <= 10
-                            ? "text-red-500 text-[14px]"
-                            : ""
-                        }`}
-                      >
-                        {ingredient?.stock?.quantity <= 10 ? (
-                          <div className="flex items-center gap-1">
-                            ⚠️ <MdEdit />
-                            <span>{ingredient?.stock?.quantity}</span> stock
-                            faible
-                          </div>
-                        ) : (
-                          ingredient?.stock?.quantity
-                        )}
-                      </td>
+                            )}
+                          </td>
+                          <td className="border-b p-2 text-sm sm:text-base">
+                            {ingredient.name || "N/A"}
+                          </td>
+                          <td
+                            className={`border-b p-2 text-sm sm:text-base ${ingredient?.stock?.quantity <= 10
+                                ? "text-red-500 text-[14px]"
+                                : ""
+                              }`}
+                          >
+                            {ingredient?.stock?.quantity <= 10 ? (
+                              <div className="flex items-center gap-1">
+                                ⚠️ <MdEdit />
+                                <span>{ingredient?.stock?.quantity}</span> stock
+                                faible
+                              </div>
+                            ) : (
+                              ingredient?.stock?.quantity
+                            )}
+                          </td>
 
-                      <td className="border-b p-2 text-sm sm:text-base">
-                        {ingredient?.unit?.abbreviation}
-                      </td>
-                      <td className="border-b p-2 flex justify-center text-sm sm:text-base">
-                        <button
-                          className="bg-blue-500 text-white rounded p-2 hover:bg-blue-600 mr-2"
-                          onClick={() => toggleModal(ingredient)}
-                        >
-                          <FaRegEdit />
-                        </button>
-                        <button
-                          className="bg-green-500 text-white rounded p-2 hover:bg-green-600"
-                          onClick={() =>
-                            fetchOperationDetails(ingredient.stock.id)
-                          }
-                        >
-                          Voir Détails
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
+                          <td className="border-b p-2 text-sm sm:text-base">
+                            {ingredient?.unit?.abbreviation}
+                          </td>
+                          <td className="border-b p-2 flex justify-center text-sm sm:text-base">
+                            <button
+                              className="bg-blue-500 text-white rounded p-2 hover:bg-blue-600 mr-2"
+                              onClick={() => toggleModal(ingredient)}
+                            >
+                              <FaRegEdit />
+                            </button>
+                            <button
+                              className="bg-green-500 text-white rounded p-2 hover:bg-green-600"
+                              onClick={() =>
+                                fetchOperationDetails(ingredient.stock.id)
+                              }
+                            >
+                              Voir Détails
+                            </button>
+                          </td>
+                        </tr>
+                      ))}
+                    </>
+                  ) : (
+                    <>
+                    <tr className="font-bold bg-gray-100 text-center">
+                        <td colSpan="3">{name}</td>
+                        <td colSpan="3">Total prix: {total} Ar</td>
+                      </tr>
+                        <tr>
+                          <td colSpan={6} className="border-b p-2 text-center text-sm sm:text-base">
+                             Pas ingredient
+                          </td>
+                        </tr>
+                    </>
+                  )}
                 </React.Fragment>
               ))
             ) : (
