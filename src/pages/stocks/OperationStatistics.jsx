@@ -189,8 +189,7 @@ function OperationStatistics() {
                   {stock.totalQuantity <= 10 ? (
                     <div className="flex items-center gap-1 w-32">
                       ⚠️ <MdEdit />
-                      {stock.totalQuantity}
-                      stock faible
+                      {stock.totalQuantity} stock faible
                     </div>
                   ) : (
                     stock.totalQuantity
