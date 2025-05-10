@@ -193,8 +193,8 @@ function OrderSummary() {
   });
 
   return (
-    <div className="text-gray-700 p-4 rounded-lg">
-      <div className="flex flex-row justify-between pt-4 w-[950px] fixed bg-white z-50 pb-2 darkBody">
+    <div className="darkBody container pr-10 p-6 bg-white rounded-md sm:p-4 md:p-6 lg:p-8 xl:p-10">
+      <div className="flex  flex-row justify-between pt-4 w-[950px] fixed bg-white z-50 pb-2 darkBody">
         <button
           onClick={() => setIsModalOpen(true)}
           className="bg-blue-500 text-white px-4 rounded hover:bg-blue-600
@@ -277,7 +277,7 @@ function OrderSummary() {
         </button>
       </div>
 
-      <table className="min-w-full bg-white shadow-md rounded-lg text-center relative top-[80px] darkBody">
+      <table className="min-w-full  shadow-md rounded-lg text-center relative top-[90px] left-0 right-0 darkBody">
         <thead className="bg-gray-200 text-gray-700">
           <tr>
             <th className="py-2 px-4">Status</th>
@@ -444,7 +444,7 @@ function OrderSummary() {
 
       {isModalOpen && (
         <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center">
-          <div className="mx-auto bg-white rounded w-full max-w-lg sm:max-w-md CreateModal" >
+          <div className="mx-auto bg-white rounded w-full max-w-lg CreateModal" >
             <div className="flex flex-row justify-between items-center">
               <h2
                 className="text-center font-serif font-bold
